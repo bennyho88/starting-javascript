@@ -55,6 +55,12 @@
            function type() {
                var x = document.getElementById("greetingsBox").value;
                document.querySelector(".greetingsBoxHolder").innerHTML = x;
+
+               if (x !== "") {
+                document.querySelector(".greetingsBoxHolder").innerHTML = x;
+               } else {
+                document.querySelector(".greetingsBoxHolder").innerHTML = "Sorry nothing to show";
+               }
            }
          </script>
     </div>
