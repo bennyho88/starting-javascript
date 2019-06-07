@@ -264,10 +264,7 @@
                 function recipe() {
                     var list = document.querySelectorAll("#listHolder > span");
                     console.log(list);
-
                     list.forEach(makeLi);
-
-
                 }
 
                 function makeLi(currentValue) {
@@ -276,6 +273,14 @@
                     newListItem.innerHTML = text.innerHTML;
 
                     text.parentNode.replaceChild(newListItem, text);
+
+
+
+                    var input = document.querySelector("#listHolder").lastChild;
+                    console.log(input);
+
+
+                    input.innerHTML = "<input placeholder='Choose your final ingredient'>";
 
 
                 }
