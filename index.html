@@ -554,11 +554,76 @@
                     the end in 2 seconds, then return in 5s. Repeat that forever.</p>
                 <hr>
                 <br>
-
                 <div id="moveAnimation" class="block"></div>
             </div>
             <script>
                 // Write your code here
+
+                document.getElementById("moveAnimation").addEventListener("click", move);
+
+                function move() {
+                    var elem = document.getElementById("moveAnimation");
+                    var pos = 0;
+                    var id = setInterval(frame, 10);
+                    var idTwo = setInterval (frameTwo, 10);
+
+                    function frame() {
+                    if (pos >= 100) {
+                        clearInterval(id);
+                    } else {
+                        pos+= 0.8;
+                        elem.style.left = pos + "%";
+                        elem.style.right = pos + "%";
+                    }
+                } 
+            }
+
+/*
+                function frameTwo() {
+                    if (pos == 0) {
+                        clearInterval(idTwo);
+                    } else {
+                        pos+= 0.8;
+                        elem.style.right = pos - "%";
+                        elem.style.left = pos - "%";
+                    }
+            }
+        }
+      */      
+
+/*
+                function move() {
+                    document.getElementById("moveAnimation".animate([
+                    // keyframes
+
+                    {transform: 'translate(0px)'},
+                    {transform: 'translateY(-300px}'}
+                ], {
+                    // timing options
+                    duration: 2000,
+                    iterations: Infinity,
+
+                });
+
+                }
+*/
+
+         
+
+            
+                 /* square.style.transform = `translate3d(${xPos}px, 0, 0)`;
+
+                if (Math.abs(xPos) >= 900) {
+                     xPos = -500;
+                }
+                */
+                
+
+            
+            
+                
+
+              
             </script>
         </div>
         <!-- END OF Part 5 -->
@@ -576,6 +641,7 @@
             </div>
             <script>
                 // Write your code here
+                
             </script>
         </div>
         <!-- END OF Part 6 -->
