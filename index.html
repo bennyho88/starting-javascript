@@ -554,19 +554,49 @@
                     the end in 2 seconds, then return in 5s. Repeat that forever.</p>
                 <hr>
                 <br>
-                <div id="moveAnimation" class="block"></div>
+                <div id="container">
+                    <div id="moveAnimation" class="block"></div>
+                </div>
+                
             </div>
             <script>
                 // Write your code here
 
-                document.getElementById("moveAnimation").addEventListener("click", move);
+                document.getElementById("moveAnimation").addEventListener("click", () => {
+                    move();
+                    // moveTwo();
+                });
 
                 function move() {
+                    var container = document.getElementById("container");
                     var elem = document.getElementById("moveAnimation");
                     var pos = 0;
-                    var id = setInterval(frame, 10);
-                    var idTwo = setInterval (frameTwo, 10);
+                    var id = setInterval(frame, 5);
+                    var maxDistToTravel = container.offsetWidth - elem.offsetWidth;
+                    var end = maxDistToTravel;
+                    var direction = 1;
 
+                    function frame() {
+                        if (pos === end) {
+                            direction *= -1;
+                            end = Math.abs(maxDistToTravel - end);
+                        } else {
+                        
+                        pos += direction;
+                        elem.style.left = pos + "px";
+                        elem.style.right = pos + "px";
+                        }
+                    }
+                };
+
+
+
+
+
+
+
+
+                    /*
                     function frame() {
                     if (pos >= 100) {
                         clearInterval(id);
@@ -578,45 +608,25 @@
                 } 
             }
 
-/*
-                function frameTwo() {
-                    if (pos == 0) {
+                function moveTwo() {
+                    var elem = document.getElementById("moveAnimation");
+                    var pos = 100;
+                    var idTwo = setInterval (frameTwo, 10);
+            
+                function frameTwo(){
+                    if (pos <= 0) {
                         clearInterval(idTwo);
                     } else {
-                        pos+= 0.8;
-                        elem.style.right = pos - "%";
+                        pos += 0.8;
                         elem.style.left = pos - "%";
+                        elem.style.right = pos - "%";
                     }
-            }
-        }
-      */      
-
-/*
-                function move() {
-                    document.getElementById("moveAnimation".animate([
-                    // keyframes
-
-                    {transform: 'translate(0px)'},
-                    {transform: 'translateY(-300px}'}
-                ], {
-                    // timing options
-                    duration: 2000,
-                    iterations: Infinity,
-
-                });
-
                 }
-*/
+            }
+     
+            */ 
 
          
-
-            
-                 /* square.style.transform = `translate3d(${xPos}px, 0, 0)`;
-
-                if (Math.abs(xPos) >= 900) {
-                     xPos = -500;
-                }
-                */
                 
 
             
