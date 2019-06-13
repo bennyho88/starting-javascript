@@ -613,21 +613,7 @@
                     }
                 };
 
-*/
-
-
-
-
-                    
-
-         
-                
-
-            
-            
-                
-
-              
+*/  
             </script>
         </div>
         <!-- END OF Part 5 -->
@@ -645,6 +631,21 @@
             </div>
             <script>
                 // Write your code here
+
+                // Select the mouse
+
+                var mover = document.getElementById("followMouse").addEventListener("mousemove", mouseMove);
+
+
+                // Position the box and the mouse
+                // Hover over the mouse while moving it from left to right side
+
+                function mouseMove() {
+                    mover.style.left = event.clientX + 'px';
+                } 
+            
+                
+
                 
             </script>
         </div>
