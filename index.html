@@ -554,19 +554,41 @@
                     the end in 2 seconds, then return in 5s. Repeat that forever.</p>
                 <hr>
                 <br>
-                <div id="container">
+            
                     <div id="moveAnimation" class="block"></div>
-                </div>
                 
             </div>
             <script>
                 // Write your code here
 
-                document.getElementById("moveAnimation").addEventListener("click", () => {
-                    move();
-                    // moveTwo();
-                });
+                document.getElementById("moveAnimation").addEventListener("click", move);
 
+                function move() {
+                    var startPosition = 0;
+                    var intervalRight = setInterval(frameRight, 10); 
+
+                function frameRight() {
+                    if (startPosition >= 100) {
+                        clearInterval(intervalRight);
+                        intervalLeft = setInterval(frameLeft, 10);
+                    } else {
+                        startPosition += 0.5;
+                        document.getElementById("moveAnimation").style.left = startPosition + "%";
+                    }
+                }
+
+                function frameLeft() {
+                    if (startPosition <= 0) {
+                        clearInterval(intervalLeft);
+                        intervalRight = setInterval(frameRight, 10);
+                    } else {
+                        startPosition -= 0.2;
+                        document.getElementById("moveAnimation").style.left = startPosition + "%";
+                    }
+                }
+            }
+
+/* 1 function
                 function move() {
                     var container = document.getElementById("container");
                     var elem = document.getElementById("moveAnimation");
@@ -576,55 +598,27 @@
                     var end = maxDistToTravel;
                     var direction = 1;
 
+
+
                     function frame() {
                         if (pos === end) {
                             direction *= -1;
                             end = Math.abs(maxDistToTravel - end);
+                            
                         } else {
-                        
                         pos += direction;
-                        elem.style.left = pos + "px";
-                        elem.style.right = pos + "px";
+                        elem.style.left = pos + "%";
+                        elem.style.right = pos + "%";
                         }
                     }
                 };
 
+*/
 
 
 
 
-
-
-
-                    /*
-                    function frame() {
-                    if (pos >= 100) {
-                        clearInterval(id);
-                    } else {
-                        pos+= 0.8;
-                        elem.style.left = pos + "%";
-                        elem.style.right = pos + "%";
-                    }
-                } 
-            }
-
-                function moveTwo() {
-                    var elem = document.getElementById("moveAnimation");
-                    var pos = 100;
-                    var idTwo = setInterval (frameTwo, 10);
-            
-                function frameTwo(){
-                    if (pos <= 0) {
-                        clearInterval(idTwo);
-                    } else {
-                        pos += 0.8;
-                        elem.style.left = pos - "%";
-                        elem.style.right = pos - "%";
-                    }
-                }
-            }
-     
-            */ 
+                    
 
          
                 
